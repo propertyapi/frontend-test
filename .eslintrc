@@ -1,0 +1,57 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "rules": {
+    "react/style-prop-object": [0],
+    "semi": "off",
+    "@typescript-eslint/member-delimiter-style": [
+      "off",
+      {
+        "multiline": {
+          "delimiter": "none",
+          "requireLast": false
+        }
+      }
+    ],
+    "@typescript-eslint/semi": [0],
+    "@typescript-eslint/no-non-null-assertion": [0],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    //Temp
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "props|^_", "ignoreRestSiblings": true }
+    ],
+    // Don't let files get too large. There's always going to be some cases with class files that
+    // need to be longer. Just add a eslint-ignore comment for that 1 file. Keeping this rule
+    // encourages people to split and organise files properly
+    "max-lines": [
+      "error",
+      {
+        "max": 150,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      // Stop generated files being included in eslint
+      "files": "**/generated/**",
+      "rules": {
+        "max-lines": "off",
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
+}
