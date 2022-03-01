@@ -11,6 +11,15 @@ Here you should have everything you need to complete the test
 
 ## Requirements
 
+```
+Useful info:
+
+Login 
+
+email: archie+e2e@searchland.co.uk
+password: password
+```
+
 1. Write an E2E test for the SearchLand application
    1. Click on the building with this title number `NGL346031` it is at the coordinates 
 		```
