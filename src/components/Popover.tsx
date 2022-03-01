@@ -12,7 +12,6 @@ interface PopoverProps {
 };
 
 function Popover (props: PopoverProps) {
-    const [isOpen, setIsOpen] = useState(true);
 
     const {trigger, title, content, placement, ...otherProps} = props;
 
@@ -20,23 +19,17 @@ function Popover (props: PopoverProps) {
         return null;
     }
 
-    
-    const handleClick = () => {
-        setIsOpen(prevState => !prevState)
-    }
-
+   
     return (
         <>
         {trigger === "click" ? 
         <Button>Click Me</Button> : 
         <Button>Hover Me</Button>
         }
-        { isOpen && 
         <Container>
             {title && <Title>{title}</Title>}
             <Content>{content}</Content>
         </Container>
-        }
         </>
     )
 }

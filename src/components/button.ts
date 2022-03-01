@@ -13,9 +13,8 @@ background: #1890ff;
 text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
 box-shadow: 0 2px #0000000b;
 cursor: pointer;
-
-&:hover ${Container} {
-  background-color: cyan;
+&:hover ~ ${Container} {
+    display: block;
   }
 `
 
