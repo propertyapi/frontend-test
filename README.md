@@ -37,5 +37,7 @@ Here you should have everything you need to complete the test
       4. placement
    4. It should be able to take at least two position left and right
    5. It should be able to be triggered by hover or click 
+   6. You must use styled components
+   7. Other than that you have freedom to use what you like
 
 
