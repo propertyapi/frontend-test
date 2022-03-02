@@ -84,6 +84,22 @@ const ContentContainer = styled.div`
         right: 45%;
         top: -15px;
 }
+
+&.bottomRight {
+    right: ${(props: Props) => `calc(100% - ${props.left + props.width}px)`};
+    top: ${(props: Props) => `calc(100% - ${props.bottom - 10}px)`};
+
+}
+
+&.bottomRight:before {
+    content: "";
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    right: 10px;
+    top: -15px;
+}
   }
 
 `
