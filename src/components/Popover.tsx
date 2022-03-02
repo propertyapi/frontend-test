@@ -13,24 +13,35 @@ interface PopoverProps {
 
 function Popover (props: PopoverProps) {
 
+    const [isOpen, setIsOpen] = useState(false);
+
     const {trigger, title, content, placement, ...otherProps} = props;
 
     if (!title && !content) {
         return null;
     }
 
-   
+   function handleVisibility () {
+        setIsOpen(prevState => !prevState)
+   }
+
     return (
-        <>
-        {trigger === "click" ? 
-        <Button>Click Me</Button> : 
-        <Button>Hover Me</Button>
-        }
-        <Container>
-            {title && <Title>{title}</Title>}
-            <Content>{content}</Content>
-        </Container>
-        </>
+       <>
+            {
+                trigger === "click" ? 
+                <Button onClick={handleVisibility}>Click Me</Button> :
+                <Button 
+                onMouseOver={handleVisibility}
+                onMouseOut={handleVisibility}
+                >Hover Me</Button>
+            }
+            { isOpen &&
+            <Container>
+                <Title>{title}</Title>
+                <Content>{content}</Content>
+            </Container>
+            }
+       </>
     )
 }
 
