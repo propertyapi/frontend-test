@@ -51,6 +51,23 @@ const ContentContainer = styled.div`
     bottom: -15px;
     transform: rotate(180deg);
    }
+
+   &.topLeft {
+    left: ${(props: Props) => props.left + "px"};
+    bottom: ${(props: Props) => `calc(100% - ${props.bottom + props.height}px)`};
+    transform: translate(0, -75%);
+   }
+
+   &.topLeft:before {
+    content: "";
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    left: 10px;
+    bottom: -15px;
+    transform: rotate(180deg);
+   }
   }
 
 `
