@@ -100,6 +100,26 @@ const ContentContainer = styled.div`
     right: 10px;
     top: -15px;
 }
+
+
+
+
+
+
+&.bottomLeft {
+    left: ${(props: Props) => props.left + "px"};
+    top: ${(props: Props) => `calc(100% - ${props.bottom - 20}px)`};
+}
+
+&.bottomLeft:before {
+    content: "";
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    left: 10px;
+    top: -15px;
+}
   }
 
 `
