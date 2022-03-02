@@ -1,6 +1,6 @@
-import React, { useState,ReactNode } from "react";
-import Container from "./container";
-import Content from "./content";
+import React, { useState,ReactNode, useEffect } from "react";
+import ContentContainer from "./contentContainer";
+import Content from "./innerContent";
 import Title from "./title";
 import Button from "./button"
 
@@ -11,37 +11,78 @@ interface PopoverProps {
     placement: string;
 };
 
-function Popover (props: PopoverProps) {
+function Popover(props: PopoverProps) {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [bottom, setBottom] = useState(0);
+    const [top, setTop] = useState(0);
+    const [left, setLeft] = useState(0);
+    const [right, setRight] = useState(0);
+    const [width, setWidth] = useState(0);
+    const [height, setHeight] = useState(0);
 
-    const {trigger, title, content, placement, ...otherProps} = props;
+    const {trigger, title, content, placement,...otherProps} = props;
 
     if (!title && !content) {
         return null;
     }
 
-   function handleVisibility () {
-        setIsOpen(prevState => !prevState)
+   function handleClick () {
+        setIsOpen(prevState => !prevState);
+        const elem = document.getElementsByClassName("popover-button")[0];
+        const {width, right, left, top, bottom, height} = elem.getBoundingClientRect();
+        setTop(prevState => top)
+        setBottom(prevState => bottom)
+        setRight(prevState => right)
+        setLeft(prevState => left)
+        setHeight(prevState => height)
+        setWidth(prevState => width)
    }
 
+   function handleMouseEnter() {
+       setIsOpen(true);
+       const elem = document.getElementsByClassName("popover-button")[0];
+        const { right, bottom, width, height} = elem.getBoundingClientRect();
+        setTop(prevState => top)
+        setBottom(prevState => bottom)
+        setRight(prevState => right)
+        setLeft(prevState => left)
+        setHeight(prevState => height)
+        setWidth(prevState => width)
+   }
     return (
-       <>
+       <div className="container">
             {
                 trigger === "click" ? 
-                <Button onClick={handleVisibility}>Click Me</Button> :
                 <Button 
-                onMouseOver={handleVisibility}
-                onMouseOut={handleVisibility}
-                >Hover Me</Button>
+                className="popover-button"
+                onClick={handleClick}>
+                    Click Me
+                </Button> :
+                <Button
+                className="popover-button"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={() => setIsOpen(false)}
+                >
+                    Hover Me
+                </Button>
             }
-            { isOpen &&
-            <Container>
-                <Title>{title}</Title>
-                <Content>{content}</Content>
-            </Container>
+            { isOpen && 
+                <ContentContainer 
+                    className={placement}
+                    right={right}
+                    left={left}
+                    top={top}
+                    bottom={bottom}
+                    width={width}
+                    height={height}
+                >
+                    <Title>{title}</Title>
+                    <Content>{content}</Content>
+                </ContentContainer>
+              
             }
-       </>
+       </div>
     )
 }
 
