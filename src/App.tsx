@@ -49,6 +49,9 @@ function App() {
       <GlobalStyle />
       <main>
         <Popover title={title} content={content} placement="top" trigger="click" />
+        <Popover title={title} content={content} placement="topLeft" trigger="click" />
+        <Popover title={title} content={content} placement="topRight" trigger="click" />
+        <Popover title={title} content={content} placement="bottom" trigger="click" />
       </main>
     </div>
   )

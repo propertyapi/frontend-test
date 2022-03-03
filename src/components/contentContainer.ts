@@ -1,13 +1,9 @@
-import styled from "styled-components";
+import { Coords } from "./Popover"
+import styled from "styled-components"
 
 interface Props {
-    right: number;
-    left: number;
-    top: number;
-    bottom: number;
-    width: number;
-    height: number;
-    className: string;
+  coords: Coords
+  className: string
 }
 
 const ContentContainer = styled.div`
@@ -18,8 +14,8 @@ const ContentContainer = styled.div`
     margin-top: 24px;
 
    &.top {
-    left: ${(props: Props) => props.left + "px"};
-    bottom: ${(props: Props) => `calc(100% - ${props.bottom + props.height}px)`};
+    left: ${(props: Props) => props.coords.left + "px"};
+    bottom: ${(props: Props) => `calc(100% - ${props.coords.bottom + props.coords.height}px)`};
     transform: translate(-25%, -75%);                                                       
    }
 
@@ -35,8 +31,8 @@ const ContentContainer = styled.div`
    }
 
    &.topRight {
-    right: ${(props: Props) => `calc(100% - ${props.left + props.width}px)`};
-    bottom: ${(props: Props) => `calc(100% - ${props.bottom + props.height}px)`};
+    right: ${(props: Props) => `calc(100% - ${props.coords.left + props.coords.width}px)`};
+    bottom: ${(props: Props) => `calc(100% - ${props.coords.bottom + props.coords.height}px)`};
     transform: translate(0, -75%);                                                       
 
    }
@@ -53,8 +49,8 @@ const ContentContainer = styled.div`
    }
 
    &.topLeft {
-    left: ${(props: Props) => props.left + "px"};
-    bottom: ${(props: Props) => `calc(100% - ${props.bottom + props.height}px)`};
+    left: ${(props: Props) => props.coords.left + "px"};
+    bottom: ${(props: Props) => `calc(100% - ${props.coords.bottom + props.coords.height}px)`};
     transform: translate(0, -75%);
    }
 
@@ -70,8 +66,8 @@ const ContentContainer = styled.div`
    }
 
    &.bottom {
-    left: ${(props: Props) => props.left + "px"};
-    top: ${(props: Props) => `calc(100% - ${props.bottom - 10}px)`};
+    left: ${(props: Props) => props.coords.left + "px"};
+    top: ${(props: Props) => `calc(100% - ${props.coords.bottom - 10}px)`};
     transform: translate(-25%, 0px);
 }
 
@@ -86,8 +82,8 @@ const ContentContainer = styled.div`
 }
 
 &.bottomRight {
-    right: ${(props: Props) => `calc(100% - ${props.left + props.width}px)`};
-    top: ${(props: Props) => `calc(100% - ${props.bottom - 10}px)`};
+    right: ${(props: Props) => `calc(100% - ${props.coords.left + props.coords.width}px)`};
+    top: ${(props: Props) => `calc(100% - ${props.coords.bottom - 10}px)`};
 
 }
 
@@ -101,14 +97,9 @@ const ContentContainer = styled.div`
     top: -15px;
 }
 
-
-
-
-
-
 &.bottomLeft {
-    left: ${(props: Props) => props.left + "px"};
-    top: ${(props: Props) => `calc(100% - ${props.bottom - 20}px)`};
+    left: ${(props: Props) => props.coords.left + "px"};
+    top: ${(props: Props) => `calc(100% - ${props.coords.bottom - 20}px)`};
 }
 
 &.bottomLeft:before {
@@ -124,4 +115,4 @@ const ContentContainer = styled.div`
 
 `
 
-export default ContentContainer;
+export default ContentContainer

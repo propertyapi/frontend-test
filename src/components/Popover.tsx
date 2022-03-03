@@ -68,9 +68,21 @@ function Popover(props: PopoverProps) {
       setIsOpen(false)
     }
 
+    function handleResize() {
+      if (hoveredElem.current) {
+        const coords = getBoundingClientRect(hoveredElem.current)
+        setCoords(coords)
+      }
+      if (clickedElem.current) {
+        const coords = getBoundingClientRect(clickedElem.current)
+        setCoords(coords)
+      }
+    }
+
     clickedElem.current?.addEventListener("click", handleClick)
     hoveredElem.current?.addEventListener("mouseenter", handleMouseOver)
     hoveredElem.current?.addEventListener("mouseleave", handleMouseLeave)
+    window.addEventListener("resize", handleResize)
 
     return () => {
       clickedElem.current?.removeEventListener("click", handleClick)
