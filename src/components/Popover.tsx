@@ -36,32 +36,27 @@ function Popover(props: PopoverProps) {
     y: 0
   })
 
-  const { trigger, title, content, placement, ...otherProps } = props
+  const { trigger, title, content, placement } = props
 
   const getBoundingClientRect = (element: Element) => {
     const { top, right, bottom, left, width, height, x, y } = element.getBoundingClientRect()
     return { top, right, bottom, left, width, height, x, y }
   }
 
-  const clickedElem = useRef<HTMLButtonElement>(null)
-  const hoveredElem = useRef<HTMLButtonElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   useLayoutEffect(() => {
+    if (buttonRef.current) {
+      const coords = getBoundingClientRect(buttonRef.current)
+      setCoords(coords)
+    }
+
     function handleClick() {
       setIsOpen((prevState) => !prevState)
-
-      if (clickedElem.current) {
-        const coords = getBoundingClientRect(clickedElem.current)
-        setCoords(coords)
-      }
     }
 
     function handleMouseOver() {
       setIsOpen(true)
-      if (hoveredElem.current) {
-        const coords = getBoundingClientRect(hoveredElem.current)
-        setCoords(coords)
-      }
     }
 
     function handleMouseLeave() {
@@ -69,27 +64,30 @@ function Popover(props: PopoverProps) {
     }
 
     function handleResize() {
-      if (hoveredElem.current) {
-        const coords = getBoundingClientRect(hoveredElem.current)
-        setCoords(coords)
-      }
-      if (clickedElem.current) {
-        const coords = getBoundingClientRect(clickedElem.current)
+      if (buttonRef.current) {
+        const coords = getBoundingClientRect(buttonRef.current)
         setCoords(coords)
       }
     }
 
-    clickedElem.current?.addEventListener("click", handleClick)
-    hoveredElem.current?.addEventListener("mouseenter", handleMouseOver)
-    hoveredElem.current?.addEventListener("mouseleave", handleMouseLeave)
+    if (buttonRef.current) {
+      if (trigger === "click") {
+        buttonRef.current.addEventListener("click", handleClick)
+      } else if (trigger === "hover") {
+        buttonRef.current.addEventListener("mouseenter", handleMouseOver)
+        buttonRef.current.addEventListener("mouseleave", handleMouseLeave)
+      }
+    }
+
     window.addEventListener("resize", handleResize)
 
     return () => {
-      clickedElem.current?.removeEventListener("click", handleClick)
-      hoveredElem.current?.removeEventListener("mouseenter", handleMouseOver)
-      hoveredElem.current?.removeEventListener("mouseleave", handleMouseLeave)
+      buttonRef.current?.removeEventListener("click", handleClick)
+      buttonRef.current?.removeEventListener("mouseenter", handleMouseOver)
+      buttonRef.current?.removeEventListener("mouseleave", handleMouseLeave)
+      window.removeEventListener("resize", handleResize)
     }
-  })
+  }, [])
 
   if (!title && !content) {
     return null
@@ -97,7 +95,7 @@ function Popover(props: PopoverProps) {
 
   return (
     <div className="container">
-      {trigger === "click" ? <Button ref={clickedElem}>Click Me ({placement})</Button> : <Button ref={hoveredElem}>Hover Me</Button>}
+      {trigger === "click" ? <Button ref={buttonRef}>click {placement}</Button> : <Button ref={buttonRef}>hover {placement}</Button>}
       {isOpen && (
         <ContentContainer className={placement} coords={coords}>
           <Title>{title}</Title>
