@@ -114,7 +114,7 @@ export const TooltipBox = styled.span<StyledInnerContainerProps>`
             right: 100%;
             left: unset;
             top: calc(50% - 5px);
-            border-color: transparent #000 transparent  transparent;
+            border-color: transparent #fff transparent  transparent;
           }
         `;
       default:
@@ -124,7 +124,7 @@ export const TooltipBox = styled.span<StyledInnerContainerProps>`
             top: 100%;
             width: 1px;
             left: calc(50% - 5px);
-            border-color: #000 transparent transparent  transparent;
+            border-color: #fff transparent transparent  transparent;
           }
         `;
 
