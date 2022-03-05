@@ -22,5 +22,5 @@ import "./commands"
 beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  cy.clearCookies({ domain: null })
+  // cy.clearCookies({ domain: null })
 })
