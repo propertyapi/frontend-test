@@ -71,5 +71,10 @@ describe("Auth", () => {
     cy.get(exitButton).click()
     cy.get(building).click("center")
   })
+
+  it("Check that the mini box in the top right side appears", () => {
+    cy.get(miniBox).should("be.visible")
+  })
+
   })
 })
