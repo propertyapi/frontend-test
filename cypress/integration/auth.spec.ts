@@ -76,5 +76,8 @@ describe("Auth", () => {
     cy.get(miniBox).should("be.visible")
   })
 
+  it("Click the expand button on the mini title view", () => {
+    cy.get(expandButton).click()
+  })
   })
 })
