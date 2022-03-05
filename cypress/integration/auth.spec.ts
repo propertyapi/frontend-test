@@ -21,6 +21,7 @@ describe("Auth", () => {
     // @ts-ignore
     cy.clearCookies({ domain: null })
   })
+
   it("email/password signup sets the cookie and takes you to the complete signup page", () => {
     cy.visit("/signup")
 
@@ -62,7 +63,7 @@ describe("Auth", () => {
 
     // cy.get("[data-cy='completeAccount']").should("have.length", 1)
   })
-  
+
   it("Find the building and click it", () => {
     cy.get(searchInput).type(titleNumber)
     cy.contains("Title number").click()
@@ -79,5 +80,9 @@ describe("Auth", () => {
   it("Click the expand button on the mini title view", () => {
     cy.get(expandButton).click()
   })
+
+  it("Check that the planning count has 17", () => {
+    cy.get(planningTab).click()
+    cy.get(planningCount).should("have.text", "17")
   })
 })
