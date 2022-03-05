@@ -17,7 +17,7 @@ code {
     monospace;
 }
 
- main, .container, #root, #root>div {
+ main, .popover, #root, #root>div {
   height: 100%;
 }
 
@@ -30,5 +30,6 @@ main {
   display: flex;
   align-items: center;
 }
+
 `
 export default GlobalStyle
