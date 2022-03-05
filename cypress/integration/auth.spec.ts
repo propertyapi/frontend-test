@@ -4,6 +4,17 @@ const email = "archie+e2e@searchland.co.uk"
 const password = "password"
 const phoneNumber = faker.phone.phoneNumber("+447#########")
 
+const searchInput = "#rc_select_0"
+const titleNumber = "NGL346031"
+const itemResult = ".ant-select-item-option-content"
+const miniBox = ".cGRMtF"
+const exitButton = ".eBjfwp"
+const expandButton = ".jRxqFG > .anticon > svg"
+const planningTab = "#rc-tabs-0-tab-2"
+const planningCount = "#rc-tabs-0-tab-2 > .ant-badge > .ant-scroll-number"
+const building =
+  '[style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"]'
+
 describe("Auth", () => {
   it("email/passwork signup sets the cookie and takes you to the complete signup page", () => {
     cy.visit("/signup")
