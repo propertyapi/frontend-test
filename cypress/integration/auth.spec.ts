@@ -1,6 +1,6 @@
 import * as faker from "faker"
 
-const email = faker.internet.email()
+const email = "archie+e2e@searchland.co.uk"
 const password = "password"
 const phoneNumber = faker.phone.phoneNumber("+447#########")
 
