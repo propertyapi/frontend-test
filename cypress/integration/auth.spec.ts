@@ -21,6 +21,7 @@ describe("Auth", () => {
     // @ts-ignore
     cy.clearCookies({ domain: null })
   })
+  it("email/password signup sets the cookie and takes you to the complete signup page", () => {
     cy.visit("/signup")
 
     cy.get("[data-cy='signupPage']").should("have.length", 1)
