@@ -62,5 +62,14 @@ describe("Auth", () => {
 
     // cy.get("[data-cy='completeAccount']").should("have.length", 1)
   })
+  
+  it("Find the building and click it", () => {
+    cy.get(searchInput).type(titleNumber)
+    cy.contains("Title number").click()
+    cy.contains(itemResult, "NGL346031 (The Middlesex Guildhall, Broad Sanctuary, London (SW1P 3BB))").should("be.visible").click()
+    cy.get(miniBox, { timeout: 10000 })
+    cy.get(exitButton).click()
+    cy.get(building).click("center")
+  })
   })
 })
