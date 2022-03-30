@@ -23,5 +23,5 @@ Here you should have everything you need to complete the test
    5. It should be able to be triggered by hover or click 
    6. It does not require to have animations
    7. You must use styled components
-
-
+   8. Any components you need you must build
+   
