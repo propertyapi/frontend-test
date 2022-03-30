@@ -13,7 +13,7 @@ Here you should have everything you need to complete the test
 
 1. Create a popover component
    1. It should look the same as the following [popover](https://ant.design/components/popover/)
-   2. You may not use antd to build this component or any other popover library
+   2. You may not use antd to build this component or any other library
    3. It shoudl take the following props at a minimum
       1. trigger
       2. title
@@ -23,6 +23,5 @@ Here you should have everything you need to complete the test
    5. It should be able to be triggered by hover or click 
    6. It does not require to have animations
    7. You must use styled components
-   8. Other than that you have freedom to use what you like
 
 
