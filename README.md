@@ -11,34 +11,9 @@ Here you should have everything you need to complete the test
 
 ## Requirements
 
-```
-Useful info:
-
-Login 
-
-email: archie+e2e@searchland.co.uk
-password: password
-```
-
-1. Write an E2E test for the SearchLand application
-   1. Click on the building with this title number `NGL346031` it is at the coordinates 
-		```
-		{
-			lat:  51.5004045307746,
-			lng: -0.12814436673338322 
-		}
-		```
-		![Where to click!](./images/where_to_click.png)
-	2. Make sure that the mini box in the top right hand side appears
-   	![Mini title view!](./images/mini_view.png)
-	3. Click the expand button on the mini title view
-   	![Title view!](./images/title_view.png)
-	4. Click on the planning tab
-		![Planning!](./images/planning.png)
-	5. Check that the planning count has 17
-2. Create a popover component
+1. Create a popover component
    1. It should look the same as the following [popover](https://ant.design/components/popover/)
-   2. You may not use antd to build this component
+   2. You may not use antd to build this component or any other popover library
    3. It shoudl take the following props at a minimum
       1. trigger
       2. title
@@ -46,7 +21,8 @@ password: password
       4. placement
    4. It should be able to take at least two position left and right
    5. It should be able to be triggered by hover or click 
-   6. You must use styled components
-   7. Other than that you have freedom to use what you like
+   6. It does not require to have animations
+   7. You must use styled components
+   8. Other than that you have freedom to use what you like
 
 
