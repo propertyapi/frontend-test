@@ -7,21 +7,27 @@ import { Typography } from "@mui/material"
 import FloodChart from "../../assests/images/floods.jpg"
 type Props = {
   data: string
+  isHover: boolean
+  hoverHandler: (value: boolean ) => void;
+  isChecked: boolean
+  setChecked: (value: boolean | ((prevVar: boolean) => boolean)) => void;
 }
 
 const CustomCard = (props: Props) => {
-  const { data } = props
+  const { data, isHover = false, hoverHandler, isChecked = false, setChecked } = props
+  console.log("hoverHandler",hoverHandler)
   return (
     <Card
-      sx={{
+      onMouseEnter={() => hoverHandler(true)}
+      onMouseLeave={() => hoverHandler(false)}
+      style={{
         borderRadius: "10px",
         margin: "20px auto",
         width: "250px",
         height: "180px",
-        border: "2px solid transparent",
-        "&:hover": {
-          borderColor: "#21B6A8"
-        }
+        borderWidth: "2px",
+        borderStyle: "solid",
+        borderColor: isHover ? "#21B6A8" : "transparent"
       }}
     >
       <CardContent sx={{ padding: "0", height: "65%" }}>
@@ -29,8 +35,9 @@ const CustomCard = (props: Props) => {
       </CardContent>
       <CardActions sx={{ height: "35%", padding: "0" }}>
         <Checkbox
+          checked={isChecked}
+          onClick={() => setChecked(!isChecked)}
           sx={{
-            // color: pink[800],
             "&.Mui-checked": {
               color: "#21B6A8"
             }
