@@ -21,7 +21,11 @@ export const CardComponent = ({index, key}: card) => (
   <Card key={key} sx={{ maxWidth: 229, borderRadius: "10px" }}>
     <CardMedia component="img" height="100" image={CardImage} alt="random" />
     <CardContent sx={{ pl: "18.25px", py: "4px" }} style={{ paddingBottom: 4 }}>
-      <FormControlLabel control={<Checkbox defaultChecked={index === 2? true : false }/>} label="Flood Zone 3." />
+      <FormControlLabel control={<Checkbox defaultChecked={index === 2? true : false } sx={{
+            "&.Mui-checked": {
+              color: "#21B6A8"
+            }
+          }}/>} label="Flood Zone 3." />
     </CardContent>
   </Card>
 )
