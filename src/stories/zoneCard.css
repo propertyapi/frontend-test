@@ -1,0 +1,13 @@
+@font-face {
+    font-family: Jakarta;
+    src: url('./assets/PlusJakartaSans-VariableFont_wght.ttf');
+}
+
+.css-ahj2mt-MuiTypography-root {
+    font-family: Jakarta !important;
+    font-size: 1.5rem !important;
+}
+
+.css-144bdev-MuiButtonBase-root-MuiCheckbox-root.Mui-checked {
+    color: #21B6A8 !important;
+}
