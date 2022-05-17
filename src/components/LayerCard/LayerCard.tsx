@@ -22,8 +22,9 @@ export const LayerCard: React.FC<LayerCardProps> = ({ forceHover, label, checked
       <Box className={classes.image}>{image}</Box>
       <Box className={classes.checkboxContainer}>
         <FormControlLabel
+          color="secondary"
           className={classes.label}
-          control={<Checkbox onChange={handleChange} color="primary" size="small" checked={checked} />}
+          control={<Checkbox className={classes.checkbox} onChange={handleChange} color="primary" size="small" checked={checked} />}
           label={label}
         />
       </Box>

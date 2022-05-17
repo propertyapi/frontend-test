@@ -1,3 +1,4 @@
+import { Theme } from "@mui/material/styles"
 import { makeStyles } from "@mui/styles"
 
 interface StyleProps {
@@ -5,43 +6,67 @@ interface StyleProps {
   forceHover: boolean
 }
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme: Theme) => ({
   root: ({ checked, forceHover }: StyleProps) => {
     return {
       width: 229,
       height: 150,
-      backgroundColor: "#FFFFFF",
+      backgroundColor: theme.layerCard.background.main,
       borderWidth: 1,
       borderStyle: "solid",
-      borderColor: checked ? "#3D8479" : "#EFEFEF",
-      ...(forceHover && {
-        borderColor: "#65E9D9"
-      }),
+      borderColor: theme.layerCard.border.unselected,
       borderRadius: 10,
       display: "flex",
       flexDirection: "column",
       transition: "box-shadow .2s",
-      boxShadow: checked || forceHover ? "0px 0px 0px 2px #65E9D9" : "none",
+      boxShadow: checked || forceHover ? `0px 0px 0px 2px ${theme.layerCard.shadow.hover}` : "none",
       "&:hover": {
-        borderColor: "#65E9D9",
-        boxShadow: `0px 0px 0px 2px #65E9D9`
-      }
+        borderColor: theme.layerCard.border.hover,
+        boxShadow: `0px 0px 0px 2px ${theme.layerCard.shadow.hover}`,
+        // on checked prop and hover
+        ...(checked && {
+          borderColor: theme.layerCard.border.selected
+        })
+      },
+      // on force hover prop
+      ...(forceHover && {
+        borderColor: theme.layerCard.border.hover
+      }),
+      // on checked prop
+      ...(checked && {
+        borderColor: theme.layerCard.border.selected
+      })
     }
   },
   image: {
+    height: 100,
     "& svg": {
-      borderRadius: "10px 10px 0 0",
+      borderRadius: "9px 9px 0 0",
       height: 100,
       width: "100%"
     }
   },
   label: {
-    margin: 0
+    userSelect: "none",
+    "&.MuiFormControlLabel-root": {
+      margin: 0
+    },
+    "& .MuiTypography-root": {
+      color: theme.layerCard.label.main,
+      fontSize: 14,
+      fontWeight: 400,
+      letterSpacing: "0.17px",
+      textAlign: "left"
+    }
   },
   checkboxContainer: {
     height: 50,
+    padding: "0 8px",
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start"
+  },
+  checkbox: {
+    padding: 8
   }
-})
+}))
