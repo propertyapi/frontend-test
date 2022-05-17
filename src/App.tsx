@@ -2,6 +2,8 @@ import React from "react"
 import logo from "./logo.svg"
 import "./App.css"
 
+import { ZoneCard } from "./components"
+
 function App() {
   return (
     <div className="App">
@@ -13,6 +15,7 @@ function App() {
         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
+        <ZoneCard img="./card/CardMedia.png" zone="Flood zone 3" />
       </header>
     </div>
   )

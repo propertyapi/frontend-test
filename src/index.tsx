@@ -3,10 +3,13 @@ import ReactDOM from "react-dom"
 import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
+import { MUIThemeProvider } from "./context/MUIThemeProvider"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MUIThemeProvider>
+      <App />
+    </MUIThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 )
