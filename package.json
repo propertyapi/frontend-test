@@ -10,7 +10,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token=53c2817acdfb"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -59,15 +60,15 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.22",
-    "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-interactions": "^6.4.22",
-    "@storybook/addon-links": "^6.4.22",
-    "@storybook/builder-webpack5": "^6.4.22",
-    "@storybook/manager-webpack5": "^6.4.22",
-    "@storybook/node-logger": "^6.4.22",
+    "@storybook/addon-actions": "^6.5.0-rc.0",
+    "@storybook/addon-essentials": "^6.5.0-rc.0",
+    "@storybook/addon-interactions": "^6.5.0-rc.0",
+    "@storybook/addon-links": "^6.5.0-rc.0",
+    "@storybook/builder-webpack5": "^6.5.0-rc.0",
+    "@storybook/manager-webpack5": "^6.5.0-rc.0",
+    "@storybook/node-logger": "^6.5.0-rc.0",
     "@storybook/preset-create-react-app": "^4.1.0",
-    "@storybook/react": "^6.4.22",
+    "@storybook/react": "^6.5.0-rc.0",
     "@storybook/testing-library": "^0.0.11",
     "@types/faker": "5.5.9",
     "@typescript-eslint/eslint-plugin": "5.12.1",

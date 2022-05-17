@@ -1,6 +1,18 @@
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/
+    }
+  }
+}
+
 import React from "react"
 
 import { addDecorator } from "@storybook/react"
-import { MUIThemeProvider } from "../src/context/MUIThemeProvider"
+import { ThemeProvider } from "@mui/material/styles"
 
-addDecorator((story) => <MUIThemeProvider>{story()}</MUIThemeProvider>)
+import { muiTheme } from "../src/config/mui-theme"
+
+addDecorator((story) => <ThemeProvider theme={muiTheme}>{story()}</ThemeProvider>)
